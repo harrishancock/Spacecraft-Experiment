@@ -1,0 +1,51 @@
+For now, everything is in 2D.
+
+Two coordinate systems in use: body-fixed and world-fixed. Body-fixed
+coordinates are given in units relative to some body's origin--the body's
+orientation has no effect on coordinates in this system. World-fixed
+coordinates are given in units relative to some notional world origin.
+
+Angles are in radians, measured in a standard unit circle fashion: 0 radians is
+due east, pi/2 due north, pi due west, 3*pi/2 due south.
+
+Spacecraft have the following attributes:
+- physical body, used for physics calculations
+- graphical body, which may be the same as the physical body, used for
+  graphical representation
+- thrusters
+
+Physical bodies have the following attributes:
+- mass
+- density map? (texture where transparent = 0 mass, darkest color = max density
+  and light colors are somewhere in between. Maybe make it monochrome, so there
+  are only 256 values to choose from?)
+- center of mass, calculated from ship's density map, if any
+- moment of inertia calculated around the center of mass
+- orientation around the z-axis passing through the center of mass (scalar)
+- linear velocity
+- linear acceleration
+- angular velocity
+- angular acceleration
+- shape used for collision detection
+** For now, assume center of mass is static and is the same as the origin. Later
+   we can tackle the situation where the COM might be dynamic.
+
+Graphical bodies have the following attributes:
+- origin
+- shape
+- color/texture?
+
+Thrusters have the following attributes:
+- point of application on body, in body-fixed coordinates
+- force vector relative to un-oriented body
+- key binding
+
+Shapes have the following attributes:
+- list of vertices relative to the body's origin (be it an arbitrary origin or its center of mass)
+
+Types of dynamic influences:
+
+Thruster
+Tractor
+Gravity
+RubberBand
