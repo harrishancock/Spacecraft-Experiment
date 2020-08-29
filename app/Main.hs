@@ -52,7 +52,7 @@ rmod x d = x - d * (fromIntegral . floor) (x / d)
 clampSpacecraft s = s { body = clampBody (body s) }
  where
     clampBody b = b { centerMass = clampCenterMass (centerMass b) }
-    clampCenterMass cm = 2 |> [clampX (cm @> 0), clampY (cm @> 1)]
+    clampCenterMass cm = 2 |> [clampX (cm ! 0), clampY (cm ! 1)]
     clampX x = x `rmod` (fromIntegral screenWidth)
     clampY y = y `rmod` (fromIntegral screenHeight)
 
