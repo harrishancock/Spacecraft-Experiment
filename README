@@ -1,20 +1,13 @@
 Install Prerequisites:
 
-$ sudo apt-get install libgsl0-dev liblapack-dev libatlas-base-dev \
-	libghc6-opengl-dev libghc6-sdl-dev
-$ cabal install hmatrix
+$ sudo apt-get install libgsl0-dev liblapack-dev libatlas-base-dev
 
 libgsl0-dev, liblapack-dev, libatlas-base-dev are required for hmatrix, which
-provides Numeric.LinearAlgebra
-
-libghc6-opengl-dev and libghc6-sdl-dev provide Graphics.Rendering.OpenGL
-and Graphics.UI.SDL
-
+provides Numeric.LinearAlgebra.
 
 Compile and Execute:
 
-$ ghc --make main.hs
-$ ./main
+$ cabal run
 
 
 Operating:
