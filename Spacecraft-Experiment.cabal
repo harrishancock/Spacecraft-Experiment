@@ -27,7 +27,8 @@ executable Spacecraft-Experiment
         base,
         Spacecraft-Experiment,
         mtl ^>= 2.2.2,
-        SDL, -- also in lib
-        hmatrix -- also in lib
+        -- also in lib
+        SDL,
+        hmatrix
     hs-source-dirs:      app
     default-language:    Haskell2010
