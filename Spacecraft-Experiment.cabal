@@ -1,7 +1,8 @@
 cabal-version:       2.4
 name:                Spacecraft-Experiment
 version:             0.1.0.0
--- license-file:        LICENSE (TBD)
+license:             MIT
+license-file:        LICENSE
 author:              Harris Hancock
 -- maintainer:          harris@hancock
 -- extra-source-files:  CHANGELOG.md, README
