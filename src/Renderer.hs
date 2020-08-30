@@ -25,8 +25,8 @@ rinit screenWidth screenHeight = do
 
 drawRectangle :: Vector Double -> Double -> Double -> Double -> IO ()
 drawRectangle center w h o = do
-    let cmx = center @> 0
-        cmy = center @> 1
+    let cmx = center ! 0
+        cmy = center ! 1
         halfWidth = w / 2
         halfHeight = h / 2
         vUL = toVertex3 (-halfWidth) (-halfHeight) 0

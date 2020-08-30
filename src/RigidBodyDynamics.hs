@@ -45,6 +45,7 @@ data RigidBody = RigidBody { mass            :: Double
                            , influences      :: [Influence]
                            } deriving (Show)
 
+defaultRigidBody :: RigidBody
 defaultRigidBody = RigidBody { mass = 1
                              , centerMass = 2 |> [0,0]
                              , orientation = 0
@@ -95,10 +96,12 @@ stepTime t body = newBody { centerMass  = r
 -- rotate u (pi/2) radians and take the dot product with it and v
 -- Alternatively, if u and v are extended to 3-dimensional vectors, perpDot is
 -- the z value of the cross product of u and v
-u `perpDot` v = (u @> 0) * (v @> 1) - (u @> 1) * (v @> 0)
+perpDot :: Vector Double -> Vector Double -> Double
+u `perpDot` v = (u ! 0) * (v ! 1) - (u ! 1) * (v ! 0)
 
 -- rotate a given vector by a given angle
-rotate v theta = (2><2) [cos theta, (-sin theta), sin theta, cos theta] <> v
+rotate :: Vector Double -> Double -> Vector Double
+rotate v theta = (2><2) [cos theta, (-sin theta), sin theta, cos theta] #> v
 
 -- intuitively it should be Influence -> RigidBody -> RigidBody, but then I'd
 -- have to flip it in the foldl' above

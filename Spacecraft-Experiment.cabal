@@ -1,0 +1,35 @@
+cabal-version:       2.4
+name:                Spacecraft-Experiment
+version:             0.1.0.0
+license:             MIT
+license-file:        LICENSE
+author:              Harris Hancock
+-- maintainer:          harris@hancock
+-- extra-source-files:  CHANGELOG.md, README
+
+library
+    exposed-modules:
+        Timer,
+        Renderer,
+        RigidBodyDynamics,
+        Spacecraft2D
+    build-depends:
+        base ^>= 4.12,
+        hmatrix ^>= 0.20,
+        loop ^>= 0.3,
+        OpenGL ^>= 3.0.3,
+        SDL ^>= 0.6.7
+    hs-source-dirs:      src
+    default-language:    Haskell2010
+
+executable Spacecraft-Experiment
+    main-is:             Main.hs
+    build-depends:
+        base,
+        Spacecraft-Experiment,
+        mtl ^>= 2.2.2,
+        -- also in lib
+        SDL,
+        hmatrix
+    hs-source-dirs:      app
+    default-language:    Haskell2010
